@@ -1,0 +1,45 @@
+/*
+NAME:DUKE OWEN KAIMENYI
+REG NO:BCS-05-0408/2022
+ASSIGHNMENT:write a program that request the user  to enter hours worked in a week and the hourly wage .the program should then print the gross pay the taxes and the net pay .assume the following;
+assume the following overtime (in excess of 40 hours a week)=time and  a half .tax rate;15%of the first 600$ and 20%of the rest
+*/
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    double hours, wage, gross_pay, tax, net_pay;
+
+    // Get user input
+    cout << "Enter hours worked in a week: ";
+    cin >> hours;
+    cout << "Enter hourly wage: ";
+    cin >> wage;
+
+    // Step 1: Calculate gross pay
+    if (hours <= 40) {
+        gross_pay = hours * wage;
+    } else {
+        gross_pay = (40 * wage) + ((hours - 40) * wage * 1.5);
+    }
+
+    // Step 2: Calculate taxes
+    if (gross_pay <= 600) {
+        tax = gross_pay * 0.15;
+    } else {
+        tax = (600 * 0.15) + ((gross_pay - 600) * 0.20);
+    }
+
+    // Step 3: Net pay
+    net_pay = gross_pay - tax;
+
+    // Output results with 2 decimal places
+
+    cout << "Gross Pay: $" << gross_pay << endl;
+    cout << "Taxes: $" << tax << endl;
+    cout << "Net Pay: $" << net_pay << endl;
+
+    return 0;
+}
