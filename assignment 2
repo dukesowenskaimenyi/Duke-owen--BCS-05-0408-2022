@@ -1,0 +1,60 @@
+/*write a c++ program that will implement a class named cylinder with two data members; radius and height and two member functions to determine and output the surface area  and volume of a cylinder
+NAME:DUKE OWEN KAIMENYI
+REG NO:BCS-05-0408/2022
+*/
+
+
+#include <iostream>
+#include <cmath>    // for M_PI (pi)
+
+
+using namespace std;
+
+// Cylinder class
+class Cylinder {
+private:
+    double radius;
+    double height;
+
+public:
+    // 
+    Cylinder(double r, double h) {
+        radius = r;
+        height = h;
+    }
+
+    // Function to calculate surface area
+    double surfaceArea() {
+        return (2 * M_PI * radius * radius) + (2 * M_PI * radius * height);
+    }
+
+    // Function to calculate volume
+    double volume() {
+        return M_PI * radius * radius * height;
+    }
+
+    // Function to display results
+    void display() {
+        
+        cout << "Surface Area: " << surfaceArea() << endl;
+        cout << "Volume: " << volume() << endl;
+    }
+};
+
+int main() {
+    double r, h;
+
+    // Input
+    cout << "Enter radius of the cylinder: ";
+    cin >> r;
+    cout << "Enter height of the cylinder: ";
+    cin >> h;
+
+    // Create Cylinder object
+    Cylinder cyl(r, h);
+
+    // Display results
+    cyl.display();
+
+    return 0;
+}
